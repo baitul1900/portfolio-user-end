@@ -1,9 +1,6 @@
-import React from "react";
-import profileImage from "../../assets/image/Antu-removebg.png";
 import { ReactTyped } from "react-typed";
-import { Fade } from "react-awesome-reveal";
 import ButtonEncrypted from "../EncryptedButton/ButtonEncrypted";
-import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const HeroComponent = () => {
   return (
@@ -11,8 +8,9 @@ const HeroComponent = () => {
   className="mt-28"
   
 >
-  <div className="container mx-auto">
+  <div className="container mx-auto ">
     <div className="my-intro-text">
+      <Fade direction="down" cascade duration={1000}>
       <h1>Hello</h1>
       <h1>I'm Antu</h1>
       <p className="mt-6">
@@ -43,11 +41,19 @@ const HeroComponent = () => {
         </span>{" "}
         to bring dynamic web applications to life.
       </p>
+      </Fade>
+
+      
 
       {/* contact button here */}
       <ButtonEncrypted />
       {/* contact button here end */}
     </div>
+  </div>
+
+
+  <div className="container mt-10 mx-auto">
+    
   </div>
 </section>
   );

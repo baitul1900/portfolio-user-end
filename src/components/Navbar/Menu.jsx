@@ -1,186 +1,65 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Menu = () => {
-  useEffect(() => {
-    const tl = gsap.timeline({ paused: true });
-    let path = document.querySelector("path");
-    let spanBefore = document.querySelector("#hamburger .line-2");
+  const [isOpen, setIsOpen] = useState(false);
 
-    gsap.set(spanBefore, { background: "#000" });
-    gsap.set(".menu", { visibility: "hidden" });
-
-    function revealMenu() {
-      revealMenuItems();
-
-      const hamburger = document.getElementById("hamburger");
-      const toggleBtn = document.getElementById("toggle-btn");
-
-      toggleBtn.onclick = (e) => {
-        hamburger.classList.toggle("active");
-        tl.reversed(!tl.reversed());
-      };
-    }
-    revealMenu();
-
-    function revealMenuItems() {
-      const start = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-      const end = "M0, 1005S175, 995, 500, 995s500, 5, 500, 5V0H0Z";
-
-      const power2 = "power2.inout";
-
-      tl.to("#hamburger", 1.25, {
-        marginTop: "-5px",
-        x: -40,
-        y: 40,
-        ease: power2,
-      });
-      tl.to(
-        "#hamburger .line",
-        1,
-        {
-          background: "#fff",
-          ease: power2,
-        },
-        "<"
-      );
-      tl.to(
-        spanBefore,
-        1,
-        {
-          background: "#fff",
-          ease: power2,
-        },
-        "<"
-      );
-
-      tl.to(
-        ".btn .btn-outline",
-        1.25,
-        {
-          x: -40,
-          y: 40,
-          width: "140px",
-          height: "140px",
-          border: "1px solid #e2e2dc",
-          ease: power2,
-        },
-        "<"
-      );
-      tl.to(
-        path,
-        0.8,
-        {
-          attr: {
-            d: start,
-          },
-          ease: power2,
-        },
-        "<"
-      ).to(
-        path,
-        0.8,
-        {
-          attr: { d: end },
-          ease: power2,
-        },
-        "-=0.5"
-      );
-
-      tl.to(
-        ".menu",
-        0.5,
-        {
-          visibility: "visible",
-        },
-        "-=0.5"
-      );
-
-      tl.to(
-        ".menu-item>a",
-        0.5,
-        {
-          top: 0,
-          ease: "power3.in",
-          stagger: {
-            amount: 0.5,
-          },
-        },
-        "-=1"
-      ).reverse();
-    }
-  }, []);
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
-      <div id="toggle-btn" className="btn">
-        <div className="btn-outline btn-outline-1"></div>
-        <div className="btn-outline btn-outline-2"></div>
-        <div id="hamburger">
-          <span className="line line-1"></span>
-          <span className="line line-2"></span>
-        </div>
-      </div>
+      <div className="full-screen-overlay-nav">
+        <button className="toggle-button">
+          <label className="btn btn-circle swap swap-rotate">
+            {/* this hidden checkbox controls the state */}
+            <input type="checkbox"  onClick={toggleNav}/>
 
-      <div className="overlay">
-        <svg viewBox="0 0 1000 1000">
-          <path d="M0 2S175 1 500 1s500 1 500 1V0H0Z"></path>
-        </svg>
-      </div>
+            {/* hamburger icon */}
+            <svg
+              className="swap-off fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 512 512"
+            >
+              <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+            </svg>
 
-      <div className="menu">
-        <div className="primary-menu">
-          <div className="menu-container">
-            <div className="wrapper">
-              <div className="menu-item">
-                <a href="#">
-                  <span>I</span>Index
-                </a>
-                <div className="menu-item-revealer"></div>
-              </div>
-
-              <div className="menu-item">
-                <a href="#">
-                  <span>II</span>Work
-                </a>
-                <div className="menu-item-revealer"></div>
-              </div>
-
-              <div className="menu-item">
-                <a href="#">
-                  <span>III</span>About
-                </a>
-                <div className="menu-item-revealer"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="secondary-menu">
-          <div className="menu-container">
-            <div className="wrapper">
-              <div className="menu-item">
-                <a href="#">Speaker</a>
-                <div className="menu-item-revealer"></div>
-              </div>
-
-              <div className="menu-item">
-                <a href="#">Blog</a>
-                <div className="menu-item-revealer"></div>
-              </div>
-
-              <div className="menu-item">
-                <a href="#">Contact</a>
-                <div className="menu-item-revealer"></div>
-              </div>
-
-              <div className="menu-item">
-                <a href="#">Credits</a>
-                <div className="menu-item-revealer"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+            {/* close icon */}
+            <svg
+              className="swap-on fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 512 512"
+            >
+              <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+            </svg>
+          </label>
+        </button>
+        <motion.nav
+          className={`nav-overlay ${isOpen ? "open" : ""}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.5 }} // Add transition duration
+        >
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </motion.nav>
       </div>
     </>
   );
