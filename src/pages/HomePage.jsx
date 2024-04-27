@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../Layout/Layout";
 import HeroComponent from "../components/HomeComponent/HeroComponent";
 import AboutMeText from "../components/HomeComponent/AboutMeText";
+import ServiceSlider from "../components/sliderComponent/ServiceSlider";
 
 
 const HomePage = () => {
@@ -9,6 +10,7 @@ const HomePage = () => {
     <Layout>
       <HeroComponent/>
       <AboutMeText/>
+      <ServiceSlider/>
     </Layout>
   );
 };
