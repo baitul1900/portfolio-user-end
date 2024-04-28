@@ -7,7 +7,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { FiMousePointer } from "react-icons/fi";
-import serviceData from "../../api/api";
+
 
 
 const ROTATION_RANGE = 32.5;
