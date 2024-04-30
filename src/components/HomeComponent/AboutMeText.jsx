@@ -47,7 +47,7 @@ const AboutMeText = () => {
     <div className="container mx-auto my-32">
       <Fade direction="side" cascade duration={1000}>
       <div className="grid place-content-center ">
-        <h2 className="hover-text text-center text-3xl font-thin text-dark-300">
+        <h2 className="hover-text text-center  font-thin text-dark-300">
           <Text>
             As a dynamic front-end developer, I thrive on crafting captivating
             user experiences that seamlessly blend creativity with

@@ -150,4 +150,9 @@ body {
   height: 400px;
 }
 
+.hover-text {
+  font-size: 1.5vw;
+  text-align: justify;
+  color: #333;
 
+}
