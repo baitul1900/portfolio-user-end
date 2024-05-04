@@ -1,6 +1,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useEffect, useState } from "react";
-import serviceData from "../../api/api";
+import allData from "../../api/api";
 import { motion } from "framer-motion";
 import { FiMousePointer } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -29,7 +29,7 @@ const ServiceSlider = () => {
     },
   };
 
-  const { serviceList, serviceRequestList } = serviceData();
+  const { serviceList, serviceRequestList } = allData();
 
   useEffect(() => {
     serviceRequestList();

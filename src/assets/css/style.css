@@ -30,6 +30,9 @@ body {
   --headingColor: #00526e;
   --fontColorMain: rgb(35, 136, 166);
   --fontColorSub: #fff;
+  --muteColor: #404040;
+  --grayColor: #171717;
+  --stone900: #1c1917;
   --mainHead: 56px;
   --subMainHead: 48px;
   --thirtySix: 36px;
@@ -155,4 +158,32 @@ body {
   text-align: justify;
   color: #333;
 
+}
+
+.blog-card-author , .blog-card-date {
+  color: var(--muteColor) ;
+  font-size: var(--peraSubMain);
+  font-weight: 600;
+}
+
+.blog-card-author strong,
+.blog-card-date strong {
+  color: var(--grayColor);
+  font-size: var(--peraSubMain);
+  font-weight: 400;
+}
+
+.blog-card-title {
+  color: var(--stone900);
+  font-weight: 700;
+  font-size: var(--tweenty);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.blog-card-text {
+  color: var(--grayColor);
+  font-size: var(--peraSubMain);
+  font-weight: 400;
+  margin-bottom: 24px;
 }
