@@ -29,6 +29,19 @@ const allData = create((set)=> ({
     } catch (error) {
       console.error('Error fetching services:', error);
     }
+  },
+
+  // project data is here
+  projectList: null,
+  projectListRequest: async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/project`);
+      if (res.data["status"]==="success") {
+        set({ projectList: res.data["data"] });
+      }
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    }
   }
 
 }))
