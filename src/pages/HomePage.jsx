@@ -1,12 +1,12 @@
-import React from "react";
 import Layout from "../Layout/Layout";
 import HeroComponent from "../components/HomeComponent/HeroComponent";
 import AboutMeText from "../components/HomeComponent/AboutMeText";
-import ServiceSlider from "../components/sliderComponent/ServiceSlider";
-import { BlogComponent } from "../components/BlogCard/blog-component";
 import ProjectCard from "../components/Project/ProjectCard";
 import { Link } from "react-router-dom";
 import { RevealBento } from "../components/Project/RevealBento";
+import Main from "../components/opposite Carousel/Main";
+import { BouncyCardsFeatures } from "../components/Service Component/BouncyCardsFeatures";
+import BlogIndex from "./Blog/pages/BlogIndex";
 
 const HomePage = () => {
   const pageTitleProject = "Projects";
@@ -14,8 +14,8 @@ const HomePage = () => {
     <Layout>
       <HeroComponent />
       <AboutMeText />
-      <ServiceSlider />
-      <BlogComponent isHomePage={true} />
+      <BouncyCardsFeatures />
+      <BlogIndex />
 
       {/* project section is here */}
       <section>
@@ -32,10 +32,12 @@ const HomePage = () => {
         </div>
       </section>
       {/* project section is here end */}
+      <Main />
 
 
 
       <RevealBento/>
+
     </Layout>
   );
 };

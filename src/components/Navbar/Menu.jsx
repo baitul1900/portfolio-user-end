@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,13 +48,13 @@ const Menu = () => {
         >
           <ul>
             <li>
-              <a href="#">Home</a>
+            <Link to={"/"}>Root</Link>
             </li>
             <li>
               <a href="#">About</a>
             </li>
             <li>
-              <a href="#">Services</a>
+              <Link to={"/service-list"}>Service</Link>
             </li>
             <li>
               <a href="#">Contact</a>

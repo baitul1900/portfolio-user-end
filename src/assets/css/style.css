@@ -33,6 +33,7 @@ body {
   --muteColor: #404040;
   --grayColor: #171717;
   --stone900: #1c1917;
+  --sectionBg : #050505;
   --mainHead: 56px;
   --subMainHead: 48px;
   --thirtySix: 36px;
@@ -186,4 +187,128 @@ body {
   font-size: var(--peraSubMain);
   font-weight: 400;
   margin-bottom: 24px;
+}
+
+#blog-container {
+  background-color: var(--sectionBg);
+  border-radius: 80px;
+  margin-bottom: 40px;
+  padding: 50px;
+  
+}
+
+.blog-header {
+  font-size: 4vw;
+  font-weight: 700;
+  color: var(--fontColorSub);
+  border-bottom: 2px solid #ffd608;
+  padding: 24px;
+}
+
+.blog-header span {
+  color: #ffd608;
+  font-weight: 100 !important;
+  font-style: italic !important;  
+}
+
+
+.blog-header p {
+  color: var(--fontColorSub);
+  font-size: var(--peraSubMain);
+  font-weight: 400;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+
+.card {
+  position: relative;
+  border: 0px solid !important;
+  background: #050505 !important;
+}
+
+
+.curve {
+  width: 80px;
+}
+
+.bento-image {
+  border-radius: 50px;
+}
+
+
+#BlogCardHeader  h1 {
+  margin: 0px;
+  background: #050505;
+  color: #fff !important;
+  font-size: 48px;
+  border-bottom-right-radius: 20px;
+  padding-right: 50px;
+}
+
+
+.cbody {
+  padding: 0px 0px 0px 0px;
+   position: absolute;
+   z-index: 1;
+   width: 100%;
+}
+
+
+.rounded-corner {
+  border-radius: 20px;
+}
+
+.BlogHeadSub {
+  margin: 0px;
+  background: #050505;
+  color: #fff !important;
+  
+}
+
+.Blog_cards {
+  position: relative;
+}
+
+
+.BlogCardImages {
+  border-radius: 50px;
+  height: 350px;
+  object-fit: cover;
+ 
+}
+
+.Blog_details_button {
+  width: 40px;
+  height: 40px;
+
+}
+
+.BlogDetailsButton {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+
+.BlogCardDetails {
+  padding: 20px;
+}
+
+.BlogCardDetails h4 {
+  color: var(--fontColorSub);
+  font-size: var(--thirtySix);
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.BlogCardAuthor {
+  color: var(--fontColorSub);
+  font-size: var(--peraSubMain);
+  font-weight: 400;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+.authorName {
+  border-bottom : 2px solid #6365f164;
 }

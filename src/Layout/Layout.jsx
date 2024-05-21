@@ -9,11 +9,12 @@ const Layout = (props) => {
   return (
     <Fragment>
       <Menu/>
-      {/* <Menu style={{ zIndex: 4000 , position: "absolute" }}/> */}
       
       {props.children}
 
-      <footer></footer>
+      <footer>
+        hello am footer
+      </footer>
     </Fragment>
   );
 };

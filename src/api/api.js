@@ -31,6 +31,21 @@ const allData = create((set)=> ({
     }
   },
 
+
+
+  blogDetails : "",
+  blogById : async (id) => {
+    try {
+      let res = await axios.get(`${BASE_URL}/blogBy/${id}`);
+      if (res.data["status"]==="success") {
+        set({ blogDetails: res.data.data });
+      }
+    }
+    catch (e) {
+      console.error('Error fetching services:', e);
+    }
+  },
+
   // project data is here
   projectList: null,
   projectListRequest: async () => {
