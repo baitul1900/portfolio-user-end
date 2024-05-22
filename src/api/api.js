@@ -24,16 +24,32 @@ const allData = create((set)=> ({
     try {
       const res = await axios.get(`${BASE_URL}/blog`);
       if (res.data["status"]==="success") {
-        set({ blogList: res.data.data });
+        set({ blogList: res.data.data.docs });
       }
     } catch (error) {
       console.error('Error fetching services:', error);
     }
   },
 
+  // blog list with pagination 
+  blog: [],
+  totalPages: 1,
+  currentPage: 1,
+  fetchBlog : async ( page =1, limit = 10) => {
+    try {
+      let res = await axios.get(`${BASE_URL}/blog?page=${page}&limit=${limit}`);
+      if (res.data["status"]==="success") {
+        set({ blog: res.data.data.docs, totalPages: res.data.data.totalPages, currentPage: res.data.data.page });
+      }
+    }
+    catch (e) {
+      console.error('Error fetching services:', e);
+    }
+  },
 
 
-  blogDetails : "",
+
+  blogDetails : null,
   blogById : async (id) => {
     try {
       let res = await axios.get(`${BASE_URL}/blogBy/${id}`);

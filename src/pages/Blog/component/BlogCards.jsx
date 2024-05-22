@@ -68,7 +68,7 @@ const BlogCards = () => {
         </div>
       </div>
 
-      {blogList.map((blog, i) => {
+      {blogList.slice(0, 4).map((blog, i) => {
         return (
           <div key={i}>
             <div className="Blog_cards">

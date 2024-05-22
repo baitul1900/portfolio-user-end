@@ -57,6 +57,9 @@ const Menu = () => {
               <Link to={"/service-list"}>Service</Link>
             </li>
             <li>
+              <Link to={"/blog-list"}>Blog</Link>
+            </li>
+            <li>
               <a href="#">Contact</a>
             </li>
           </ul>
